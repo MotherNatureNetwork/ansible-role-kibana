@@ -16,9 +16,14 @@
 
 - name: Ensure www directory exists.
   file:
-    path: /var/www
+    path: "{{ kibana_root }}"
     state: directory
 
 - name: Move Kibana into place.
   command: >
-    mv {{ workspace }}/kibana-4.0.1-linux-x64 {{ kibana_root }}
+    cp -r {{ workspace }}/kibana-4.0.1-linux-x64 {{ kibana_root }}
+
+- name: Install nginx proxy
+  template: src=kibana.conf.j2
+            dest=/etc/nginx/sites-enabled/kibana.conf
+  notify: reload nginx
