@@ -20,8 +20,8 @@
     state: directory
 
 - name: Move Kibana into place.
-  command: >
-    cp -r {{ workspace }}/kibana-4.0.1-linux-x64 {{ kibana_root }}
+  shell: >
+    cp -r {{ workspace }}/kibana-4.0.1-linux-x64/* {{ kibana_root }}
 
 - name: Install nginx proxy
   template: src=kibana.conf.j2
