@@ -4,7 +4,7 @@ workspace: /root
 kibana_nginx_port: 80
 kibana_port: 5601
 kibana_root: /var/www/kibana3
-kibana_server_name: logs.example.com
+kibana_server_name: kibana.*
 kibana_elasticsearch_port: 80
 
 kibana_username: kibana
